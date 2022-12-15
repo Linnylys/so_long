@@ -64,6 +64,7 @@ int	check_flood_fill(t_param *prm)
 	}
 	if ((sum_collect == prm -> nb_item.nb_collect) && (prm -> key_flag == 1))
 		return (1);
+	ft_putstr("Error \nInvalid Map - You cannot win\n");	
 	return (0);
 }
 

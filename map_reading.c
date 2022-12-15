@@ -46,22 +46,25 @@ int	map_first_reading(t_param *param, char *file)
 	int		fd;
 	char	*line;
 	int		i;
+	int		flag;
 
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
 	if (line == NULL)
 		return (0);
-	get_nb_item(param, line);
+	//get_nb_item(param, line);
+	flag = line_analyse(param, line);
 	param -> mapsize.nb_column = ft_strlen_modif(line);
 	i = 1;
 	while (line)
 	{
 		free(line);
+		
 		line = get_next_line(fd);
-		get_nb_item(param, line);
+		flag = line_analyse(param, line);
 		i++;
 	}
-	if (check_nb_item(param) == 0)
+	if (check_nb_item_and_endline(param, i) == 0 || flag == 0)
 		return (0);
 	param->mapsize.nb_line = i - 1;
 	free (line);

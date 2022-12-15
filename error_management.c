@@ -19,7 +19,7 @@ int	argument_problem(int i)
 {
 	if (i == 0)
 	{
-		ft_putstr("Argument problem \n");
+		//perror("Argument problem \n");
 		return (0);
 	}
 	return (1);
@@ -29,7 +29,7 @@ int	check_first_read(int i)
 {
 	if (i == 0)
 	{
-		ft_putstr("Map problem with Exit, Collectible or Player \n");
+		//perror("Map problem with Exit, Collectible or Player \n");
 		return (0);
 	}
 	return (1);
@@ -39,7 +39,7 @@ int	check_second_read(int i, t_param *param)
 {
 	if (i == 0)
 	{
-		ft_putstr("Map problem with Collectible \n");
+		//perror("Map problem with Collectible \n");
 		free_map(param);
 		return (0);
 	}
@@ -50,7 +50,7 @@ int	check_valid_map(int i)
 {
 	if (i == 0)
 	{
-		ft_putstr("Invalid Map\n");
+		//perror("Invalid Map\n");
 		return (0);
 	}
 	return (1);

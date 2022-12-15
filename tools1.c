@@ -49,14 +49,59 @@ int	get_nb_item(t_param *param, char *str)
 	return (1);
 }
 
-int	check_nb_item(t_param *param)
+int	check_line(t_param *param, char *str)
 {
+	int	i;
+
+	i = 0;
+	if (param->line_len_flag != 0)
+	{
+		param->line_len = ft_strlen(str);
+		if (param->line_len >= WIN_MAX_LON - 1)
+			{
+				ft_putstr("Error \nInvalid Map - Too Large\n");
+				return (0);
+			}
+	}
+	else
+	{
+		if (param->line_len != ft_strlen(str))
+		{
+			ft_putstr("Error \nInvalid Map - Not Rectangular\n");
+			return(0);
+		}
+	}
+	return (1);
+}
+
+int line_analyse(t_param *param, char *str)
+{
+	get_nb_item(param, str);
+	return (check_line(param, str));	
+}
+
+int	check_nb_item_and_endline(t_param *param, int i)
+{	
 	if (param->nb_item.nb_exit != 1)
+	{
+		ft_putstr("Error \nInvalid Map - No Exit\n");
 		return (0);
+	}
 	if (param->nb_item.nb_player != 1)
+	{
+		ft_putstr("Error \nInvalid Map - No Player\n");
 		return (0);
+	}
 	if (param->nb_item.nb_collect == 0)
+	{
+		ft_putstr("Error \nInvalid Map - No Collectible\n");
 		return (0);
+	}
+	if (i >= WIN_MAX_LAR)
+	{
+		ft_putstr("Error \nInvalid Map - Too Long\n");
+		return (0);
+	}
 	return (1);
 }
 
@@ -77,7 +122,7 @@ int	type_convert(char c)
 	return (res);
 }
 
-int	game_init(t_param *param)
+/*int	game_init(t_param *param)
 {
 	param->mlx = mlx_init();
 	param->play.framecount = 0;
@@ -92,4 +137,4 @@ int	game_init(t_param *param)
 	param->nb_item.nb_player = 0;
 	param->map = NULL;
 	return (1);
-}
+}*/

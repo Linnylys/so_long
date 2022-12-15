@@ -41,7 +41,7 @@ t_image	drawing_sprite(t_param param, int i, int j)
 	else
 	{
 		img = ft_new_sprite(param.mlx, IMG_EMPTY);
-		perror("Pixel type unknown");
+		ft_putstr("Error \nPixel type unknown");
 	}
 	return (img);
 }
@@ -66,7 +66,7 @@ t_image	re_drawing_sprite(t_param *param, int i, int j)
 	else
 	{
 		img = ft_new_sprite(param->mlx, IMG_EMPTY);
-		perror("Pixel type unknown");
+		ft_putstr("Error \nPixel type unknown");
 	}
 	return (img);
 }

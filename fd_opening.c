@@ -44,7 +44,7 @@ int	file_opening(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("file_opening problem");
+		ft_putstr("Error\nFile Opening problem\n");
 		return (0);
 	}
 	close(fd);
@@ -55,7 +55,7 @@ int	check_file_opening(int fd)
 {
 	if (fd == -1)
 	{
-		perror("file_opening problem");
+		ft_putstr("Error\nFile Opening problem\n");
 		return (0);
 	}
 	return (1);

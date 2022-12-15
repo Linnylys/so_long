@@ -22,6 +22,23 @@ t_image	ft_new_sprite(void *mlx, char *path)
 	return (img);
 }
 
+int	game_init(t_param *param)
+{
+	param->mlx = mlx_init();
+	param->play.framecount = 0;
+	param->play.exit_flag = 0;
+	param->play.current_img = IMG_PLAYER_DOWN1;
+	param->play.last_key_move = 115;
+	param->play.nb_move = 1;
+	param->play.count_collect = 0;
+	param->check_border = 1;
+	param->nb_item.nb_collect = 0;
+	param->nb_item.nb_exit = 0;
+	param->nb_item.nb_player = 0;
+	param->map = NULL;
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_param	prm;
