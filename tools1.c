@@ -22,7 +22,7 @@ size_t	ft_strlen_modif(char *str)
 	if (!str)
 		return (0);
 	i = 0;
-	while (str[i] != '\n')
+	while (str[i] != '\n'&& str[i] != 0 )
 		i++;
 	return (i);
 }
@@ -54,30 +54,33 @@ int	check_line(t_param *param, char *str)
 	int	i;
 
 	i = 0;
-	if (param->line_len_flag != 0)
+	if (param->line_len_flag  == 1)
 	{
-		param->line_len = ft_strlen(str);
+		param->line_len_flag = 0;
+		param->line_len = ft_strlen_modif(str);
 		if (param->line_len >= WIN_MAX_LON - 1)
-			{
-				ft_putstr("Error \nInvalid Map - Too Large\n");
-				return (0);
-			}
+			return(check_line_error_management(0));
 	}
 	else
 	{
-		if (param->line_len != ft_strlen(str))
+		if (param->line_len != ft_strlen_modif(str) || param->line_len_flag == 2)
 		{
-			ft_putstr("Error \nInvalid Map - Not Rectangular\n");
-			return(0);
+			if (ft_strlen_modif(str) == 0)
+				param->line_len_flag = 2;
+			else
+				return(check_line_error_management(1));
 		}
 	}
 	return (1);
 }
 
-int line_analyse(t_param *param, char *str)
+int line_analyse(t_param *param, char *str, int flag)
 {
 	get_nb_item(param, str);
-	return (check_line(param, str));	
+	if (flag == 1)
+		return (check_line(param, str));
+	else
+		return(0);	
 }
 
 int	check_nb_item_and_endline(t_param *param, int i)

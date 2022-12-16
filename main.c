@@ -36,6 +36,7 @@ int	game_init(t_param *param)
 	param->nb_item.nb_exit = 0;
 	param->nb_item.nb_player = 0;
 	param->map = NULL;
+	param->line_len_flag = 1;
 	return (1);
 }
 

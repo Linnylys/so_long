@@ -118,7 +118,8 @@ typedef struct s_param
 	int			line_len_flag;
 }	t_param;
 
-int		line_analyse(t_param *param, char *str);
+int		check_line_error_management(int i);
+int		line_analyse(t_param *param, char *str, int flag);
 int		get_nb_item(t_param *param, char *str);
 int		check_nb_item_and_endline(t_param *param, int i);
 size_t	ft_strlen_modif(char *str);

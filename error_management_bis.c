@@ -15,6 +15,19 @@
 #include <stdio.h>
 #include<stddef.h>
 
+int	check_line_error_management(int i)
+{
+	if (i == 0)
+	{
+		ft_putstr("Error \nInvalid Map - Too Large\n");
+		return (0);
+	}
+	else
+	{
+		ft_putstr("Error \nInvalid Map - Not Rectangular\n");
+		return(0);
+	}
+}
 int	check_border(t_param *param, int line_int, int i, int j)
 {
 	int	check_border;
