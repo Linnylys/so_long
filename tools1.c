@@ -54,19 +54,19 @@ int	check_line(t_param *param, char *str)
 	int	i;
 
 	i = 0;
-	if (param->line_len_flag == 1)
+	if (param->line_lenflag == 1)
 	{
-		param->line_len_flag = 0;
+		param->line_lenflag = 0;
 		param->line_len = ft_strlen_modif(str);
 		if (param->line_len >= param->screen_sizexbysprite + 1)
 			return (check_line_error_management(0));
 	}
 	else
 	{
-		if (param->line_len != ft_strlen_modif(str) || param->line_len_flag == 2)
+		if (param->line_len != ft_strlen_modif(str) || param->line_lenflag == 2)
 		{
 			if (ft_strlen_modif(str) == 0)
-				param->line_len_flag = 2;
+				param->line_lenflag = 2;
 			else
 				return (check_line_error_management(1));
 		}

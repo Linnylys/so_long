@@ -115,7 +115,7 @@ typedef struct s_param
 	t_Mapsize	mapsize;
 	int			check_border;
 	int			line_len;
-	int			line_len_flag;
+	int			line_lenflag;
 	int			screen_sizexbysprite;
 	int			screen_sizeybysprite;
 }	t_param;

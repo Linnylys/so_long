@@ -56,7 +56,7 @@ int	game_init(t_param *param)
 	param->nb_item.nb_exit = 0;
 	param->nb_item.nb_player = 0;
 	param->map = NULL;
-	param->line_len_flag = 1;
+	param->line_lenflag = 1;
 	mlx_get_screen_size(param->mlx, &sizex, &sizey);
 	param->screen_sizexbysprite = sizex / BSIZE;
 	param->screen_sizeybysprite = sizey / BSIZE;
