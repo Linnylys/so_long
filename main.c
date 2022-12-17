@@ -22,8 +22,28 @@ t_image	ft_new_sprite(void *mlx, char *path)
 	return (img);
 }
 
+int	type_convert(char c)
+{
+	int	res;
+
+	if (c == '1')
+		res = 1;
+	if (c == '0')
+		res = 0;
+	if (c == 'C')
+		res = 2;
+	if (c == 'E')
+		res = 3;
+	if (c == 'P')
+		res = 4;
+	return (res);
+}
+
 int	game_init(t_param *param)
 {
+	int	sizex;
+	int	sizey;
+
 	param->mlx = mlx_init();
 	param->play.framecount = 0;
 	param->play.exit_flag = 0;
@@ -37,6 +57,9 @@ int	game_init(t_param *param)
 	param->nb_item.nb_player = 0;
 	param->map = NULL;
 	param->line_len_flag = 1;
+	mlx_get_screen_size(param->mlx, &sizex, &sizey);
+	param->screen_sizexbysprite = sizex / BSIZE;
+	param->screen_sizeybysprite = sizey / BSIZE;
 	return (1);
 }
 

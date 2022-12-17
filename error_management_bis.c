@@ -25,9 +25,10 @@ int	check_line_error_management(int i)
 	else
 	{
 		ft_putstr("Error \nInvalid Map - Not Rectangular\n");
-		return(0);
+		return (0);
 	}
 }
+
 int	check_border(t_param *param, int line_int, int i, int j)
 {
 	int	check_border;

@@ -38,6 +38,12 @@ int	flood_fill(t_param *param, int i, int j)
 	return (0);
 }
 
+int	check_flood_fill_return(void)
+{
+	ft_putstr("Error \nInvalid Map - You cannot win\n");
+	return (0);
+}
+
 int	check_flood_fill(t_param *prm)
 {
 	int	i;
@@ -64,8 +70,7 @@ int	check_flood_fill(t_param *prm)
 	}
 	if ((sum_collect == prm -> nb_item.nb_collect) && (prm -> key_flag == 1))
 		return (1);
-	ft_putstr("Error \nInvalid Map - You cannot win\n");	
-	return (0);
+	return (check_flood_fill_return());
 }
 
 void	reset_map_wall(t_param *param)

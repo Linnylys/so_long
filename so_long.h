@@ -20,8 +20,8 @@
 # include "get_next_line.h"
 
 # define BSIZE 40
-# define WIN_MAX_LAR 52
-# define WIN_MAX_LON 96
+//# define WIN_MAX_LAR 52
+//# define WIN_MAX_LON 96
 # define IMG_PLAYER_LEFT1 "./test_image/player_left_1.xpm"
 # define IMG_PLAYER_LEFT2  "./test_image/player_left_2.xpm"
 # define IMG_PLAYER_LEFT3  "./test_image/player_left_3.xpm"
@@ -114,15 +114,17 @@ typedef struct s_param
 	t_nb_items	nb_item;
 	t_Mapsize	mapsize;
 	int			check_border;
-	size_t		line_len;
+	int			line_len;
 	int			line_len_flag;
+	int			screen_sizexbysprite;
+	int			screen_sizeybysprite;
 }	t_param;
 
 int		check_line_error_management(int i);
 int		line_analyse(t_param *param, char *str, int flag);
 int		get_nb_item(t_param *param, char *str);
 int		check_nb_item_and_endline(t_param *param, int i);
-size_t	ft_strlen_modif(char *str);
+int		ft_strlen_modif(char *str);
 t_image	ft_new_sprite(void *mlx, char *path);
 int		keyboard_event(int keycode, t_param *param);
 int		close_cross(t_param *vars);
