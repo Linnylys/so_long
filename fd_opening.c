@@ -35,7 +35,6 @@ int	check_arg(int argc, char **argv)
 	{
 		if (str[len - 3] == 'b' && str[len - 4] == '.')
 			return (1);
-		ft_putstr("Error \nInvalid Argument - Extention not correct\n");
 	}
 	ft_putstr("Error \nInvalid Argument - Not recognized\n");
 	return (0);

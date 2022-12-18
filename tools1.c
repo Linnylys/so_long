@@ -64,7 +64,7 @@ int	check_line(t_param *param, char *str)
 	{
 		if (param->line_len != ft_strlen_modif(str) || param->line_lenflag == 2)
 		{
-			if (ft_strlen_modif(str) == 0)
+			if (ft_strlen_modif(str) == 0 && param->line_lenflag != 2)
 				param->line_lenflag = 2;
 			else
 				return (check_line_error_management(1));

@@ -45,12 +45,12 @@ int	check_valid_map(int i)
 	return (1);
 }
 
-int	return_and_clean(t_param *param)
+int	check_border_map(int i)
 {
-	param->play.current_img = NULL;
-	param->item = NULL;
-	mlx_destroy_display(param->mlx);
-	free(param->mlx);
-	free_map(param);
-	return (0);
+	if (i == 0)
+	{
+		ft_putstr("Error \nInvalid Map - Not surrended exclusively by wall\n");
+		return (0);
+	}
+	return (1);
 }

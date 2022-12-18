@@ -179,5 +179,6 @@ int		file_opening(char *input);
 int		argument_problem(int i);
 int		check_first_read(int i);
 void	img2wind(t_param *param, void *ptr, int i, int j);
+int		check_border_map(int i);
 
 #endif

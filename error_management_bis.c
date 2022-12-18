@@ -41,8 +41,6 @@ int	check_border(t_param *param, int line_int, int i, int j)
 		check_border = 1;
 	if (j == param -> mapsize.nb_column - 1 && line_int != 1)
 		check_border = 1;
-	if (check_border == 1)
-		ft_putstr("Error \nInvalid Map - Not surrended exclusively by wall\n");
 	return (check_border);
 }
 

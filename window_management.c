@@ -50,3 +50,13 @@ int	cleaning_and_closure(t_param *param)
 	free_map(param);
 	return (0);
 }
+
+int	return_and_clean(t_param *param)
+{
+	param->play.current_img = NULL;
+	param->item = NULL;
+	mlx_destroy_display(param->mlx);
+	free(param->mlx);
+	free_map(param);
+	return (0);
+}

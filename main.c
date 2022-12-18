@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 		return (return_and_clean(&prm));
 	if (check_second_read(map_second_reading(&prm, argv[1]), &prm) == 0)
 		return (return_and_clean(&prm));
-	if (check_valid_map(prm.check_border) == 0)
+	if (check_valid_map(check_border_map(prm.check_border) == 0))
 		return (return_and_clean(&prm));
 	if (check_valid_map(check_flood_fill(&prm)) == 0)
 		return (return_and_clean(&prm));
