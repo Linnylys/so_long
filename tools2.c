@@ -12,12 +12,9 @@
 
 #include "so_long.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int	move2exit(t_param *param)
 {
-	printf("What you have %d\n", param->play.count_collect);
-	printf("What you need: %d\n", param->nb_item.nb_collect);
 	if (param->play.count_collect == param->nb_item.nb_collect)
 	{
 		param->play.exit_flag = 1;
@@ -25,7 +22,6 @@ int	move2exit(t_param *param)
 	}
 	else
 		return (1);
-	printf("key FOUND\n");
 }
 
 void	left_frame(t_param *param)

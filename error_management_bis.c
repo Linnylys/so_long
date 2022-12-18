@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include<stddef.h>
 
 int	check_line_error_management(int i)

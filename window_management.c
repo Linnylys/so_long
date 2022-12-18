@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <stddef.h>
 
 void	free_tab(t_tile **tab, int i)
@@ -45,7 +44,6 @@ int	free_map(t_param *param)
 
 int	cleaning_and_closure(t_param *param)
 {
-	mlx_clear_window(param->mlx, param->win);
 	mlx_destroy_window(param->mlx, param->win);
 	mlx_destroy_display(param->mlx);
 	free(param->mlx);

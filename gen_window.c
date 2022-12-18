@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 #include <stdlib.h> 
-#include <stdio.h>
 
 void	*gen_window(t_param param)
 {

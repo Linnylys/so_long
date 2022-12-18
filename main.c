@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdlib.h> 
-#include <stdio.h>
+#include <stdlib.h>
 
 t_image	ft_new_sprite(void *mlx, char *path)
 {

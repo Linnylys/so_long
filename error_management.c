@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include<stddef.h>
 
 int	argument_problem(int i)

@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include<stddef.h>
 
 int	flood_fill(t_param *param, int i, int j)

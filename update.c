@@ -12,15 +12,14 @@
 
 #include "so_long.h"
 #include <stdlib.h> 
-#include <stdio.h>
 
 int	hook_update(t_param *param)
 {
 	image_re_drawing(param);
 	if (param->play.exit_flag == 1)
 	{
+		ft_putstr("Fin de jeu \n");
 		cleaning_and_closure(param);
-		printf("Fin de jeu \n");
 		exit(0);
 	}
 	return (1);

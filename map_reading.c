@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include<stddef.h>
 
 t_tile	**map_alloc(int nb_line, int nb_column)
