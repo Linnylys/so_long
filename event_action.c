@@ -47,13 +47,13 @@ int	keyboard_event(int keycode, t_param *param)
 		affich_mov(param);
 	if (keycode == 97)
 		move_left(param);
-	if (keycode == 119)
+	else if (keycode == 119)
 		move_up(param);
-	if (keycode == 115)
+	else if (keycode == 115)
 		move_down(param);
-	if (keycode == 100)
+	else if (keycode == 100)
 		move_right(param);
-	if (keycode == 65307)
+	else if (keycode == 65307)
 	{
 		cleaning_and_closure(param);
 		exit(0);

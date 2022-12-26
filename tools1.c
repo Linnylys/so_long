@@ -39,10 +39,12 @@ int	get_nb_item(t_param *param, char *str)
 	{
 		if (str[i] == 'C')
 			param -> nb_item.nb_collect++;
-		if (str[i] == 'E' )
+		else if (str[i] == 'E' )
 			param -> nb_item.nb_exit++;
-		if (str[i] == 'P')
+		else if (str[i] == 'P')
 			param -> nb_item.nb_player++;
+		else if (str[i] != '0' && str[i] != '1')
+			param->nb_item.not_recognized = 1;
 		i++;
 	}
 	return (1);
@@ -85,24 +87,14 @@ int	line_analyse(t_param *param, char *str, int flag)
 int	check_nb_item_and_endline(t_param *param, int i)
 {	
 	if (param->nb_item.nb_exit != 1)
-	{
-		ft_putstr("Error \nInvalid Map - No Exit\n");
-		return (0);
-	}
+		return (ft_putstr("Error \nInvalid Map - No Exit\n"), 0);
 	if (param->nb_item.nb_player != 1)
-	{
-		ft_putstr("Error \nInvalid Map - No Player\n");
-		return (0);
-	}
+		return (ft_putstr("Error \nInvalid Map - No Player\n"), 0);
 	if (param->nb_item.nb_collect == 0)
-	{
-		ft_putstr("Error \nInvalid Map - No Collectible\n");
-		return (0);
-	}
+		return (ft_putstr("Error \nInvalid Map - No Collectible\n"), 0);
+	if (param->nb_item.not_recognized == 1)
+		return (ft_putstr("Error \nInvalid Map - Elem not recognized\n"), 0);
 	if (i >= param->screen_sizeybysprite)
-	{
-		ft_putstr("Error \nInvalid Map - Too Long\n");
-		return (0);
-	}
+		return (ft_putstr("Error \nInvalid Map - Too Long\n"), 0);
 	return (1);
 }

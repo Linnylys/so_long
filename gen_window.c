@@ -13,14 +13,17 @@
 #include "so_long.h"
 #include <stdlib.h> 
 
-void	*gen_window(t_param param)
+int	gen_window(t_param *param)
 {
 	int	len_x;
 	int	len_y;
 
-	len_x = BSIZE * param.mapsize.nb_column;
-	len_y = BSIZE * param.mapsize.nb_line;
-	return (mlx_new_window(param.mlx, len_x, len_y, "Sauvez les chatons"));
+	len_x = BSIZE * param->mapsize.nb_column;
+	len_y = BSIZE * param->mapsize.nb_line;
+	param->win = mlx_new_window(param->mlx, len_x, len_y, "Sauvez les chatons");
+	if (param->win == NULL)
+		return (0);
+	return (1);
 }
 
 t_image	drawing_sprite(t_param param, int i, int j)

@@ -77,6 +77,8 @@ int	map_second_reading(t_param *param, char *file)
 	int		j;
 
 	param->map = map_alloc(param->mapsize.nb_line, param->mapsize.nb_column);
+	if (param->map == NULL)
+		return (0);
 	fd = open(file, O_RDONLY);
 	if (check_file_opening(fd) == 0)
 		return (0);
@@ -86,16 +88,12 @@ int	map_second_reading(t_param *param, char *file)
 		line = get_next_line(fd);
 		j = 0;
 		while (j < param->mapsize.nb_column && line != NULL)
-		{
-			affect_map(param, line, i, j);
-			j++;
-		}
+			affect_map(param, line, i, j++);
 		free (line);
 		i++;
 	}
 	line = get_next_line(fd);
-	close (fd);
-	return (1);
+	return (close (fd), 1);
 }
 
 int	image_drawing(t_param *pm)

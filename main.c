@@ -44,6 +44,8 @@ int	game_init(t_param *param)
 	int	sizey;
 
 	param->mlx = mlx_init();
+	if (param->mlx == NULL)
+		return (0);
 	param->play.framecount = 0;
 	param->play.exit_flag = 0;
 	param->play.current_img = IMG_PLAYER_DOWN1;
@@ -54,6 +56,7 @@ int	game_init(t_param *param)
 	param->nb_item.nb_collect = 0;
 	param->nb_item.nb_exit = 0;
 	param->nb_item.nb_player = 0;
+	param->nb_item.not_recognized = 0;
 	param->map = NULL;
 	param->line_lenflag = 1;
 	mlx_get_screen_size(param->mlx, &sizex, &sizey);
@@ -70,7 +73,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (file_opening(argv[1]) == 0)
 		return (0);
-	game_init(&prm);
+	if (game_init(&prm) == 0)
+		return (return_and_clean(&prm));
 	if (check_first_read(map_first_reading(&prm, argv[1])) == 0)
 		return (return_and_clean(&prm));
 	if (check_second_read(map_second_reading(&prm, argv[1]), &prm) == 0)
@@ -79,7 +83,8 @@ int	main(int argc, char **argv)
 		return (return_and_clean(&prm));
 	if (check_valid_map(check_flood_fill(&prm)) == 0)
 		return (return_and_clean(&prm));
-	prm.win = gen_window(prm);
+	if (gen_window(&prm) == 0)
+		return (return_and_clean(&prm));
 	image_drawing(&prm);
 	mlx_hook(prm.win, 2, 1L << 0, keyboard_event, &prm);
 	mlx_hook(prm.win, 17, 1L << 0, close_cross, &prm);

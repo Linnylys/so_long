@@ -99,6 +99,7 @@ typedef struct s_nb_items
 	int	nb_collect;
 	int	nb_exit;
 	int	nb_player;
+	int	not_recognized;
 }	t_nb_items;
 
 typedef struct s_param
@@ -141,7 +142,7 @@ int		*get_nb_letter_word(char const *s, char c, int nb);
 void	free_tab_letter(char **res, int len);
 char	**affect_mem_sentence(char const *s, char c, int nb);
 char	**ft_split(char const *s, char c);
-void	*gen_window(t_param param);
+int		gen_window(t_param *param);
 int		check_second_read(int i, t_param *param);
 int		game_init(t_param *param);
 int		hook_update(t_param *param);

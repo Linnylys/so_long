@@ -49,7 +49,7 @@ int	check_border_map(int i)
 {
 	if (i == 0)
 	{
-		ft_putstr("Error \nInvalid Map - Not surrended exclusively by wall\n");
+		ft_putstr("Error \nInvalid Map - Not surrounded exclusively by wall\n");
 		return (0);
 	}
 	return (1);
