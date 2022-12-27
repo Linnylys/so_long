@@ -13,9 +13,9 @@ CC      = cc
 
 RM      = rm -f
 
-CFLAGS = -I../minilibx-linux 
+CFLAGS = -I./minilibx-linux 
 
-CFLAGS1 = -Wall -Wextra -Werror -L../minilibx-linux -lmlx_Linux -lmlx  -lXext -lX11 -lm -g3
+CFLAGS1 = -Wall -Wextra -Werror -L./minilibx-linux -lmlx_Linux -lmlx  -lXext -lX11 -lm -g3
 #CFLAGS1 = -Wall -Wextra -Werror -L../minilibx-linux -lmlx_Linux -lmlx  -lXext -lX11 -lm -g3 -fsanitize=address
 
 OPT     = valgrind  --leak-check=full
@@ -25,13 +25,13 @@ OPT     = valgrind  --leak-check=full
 				
 
 ${NAME}  :${OBJS} ${HEADER}
-		make -C ../minilibx-linux
+		make -C ./minilibx-linux
 		${CC} ${SRCS} -o ${NAME} ${CFLAGS1}
 
 all:    ${NAME}
 
 clean:  
-		make clean -C ../minilibx-linux
+		make clean -C ./minilibx-linux
 		${RM} ${OBJS}
 
 

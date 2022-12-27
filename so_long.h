@@ -16,7 +16,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include "../minilibx-linux/mlx.h"
+# include "./minilibx-linux/mlx.h"
 # include "get_next_line.h"
 
 # define BSIZE 40
