@@ -61,7 +61,7 @@ int	map_first_reading(t_param *param, char *file)
 		flag = line_analyse(param, line, flag);
 		i++;
 	}
-	if (check_nb_item_and_endline(param, i) == 0 || flag == 0)
+	if (check_nb_item_and_endline(param, i, flag) == 0)
 		return (0);
 	param->mapsize.nb_line = i - 1;
 	free (line);

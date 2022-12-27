@@ -124,7 +124,7 @@ typedef struct s_param
 int		check_line_error_management(int i);
 int		line_analyse(t_param *param, char *str, int flag);
 int		get_nb_item(t_param *param, char *str);
-int		check_nb_item_and_endline(t_param *param, int i);
+int		check_nb_item_and_endline(t_param *param, int i, int flag);
 int		ft_strlen_modif(char *str);
 t_image	ft_new_sprite(void *mlx, char *path);
 int		keyboard_event(int keycode, t_param *param);

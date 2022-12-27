@@ -84,8 +84,10 @@ int	line_analyse(t_param *param, char *str, int flag)
 		return (0);
 }
 
-int	check_nb_item_and_endline(t_param *param, int i)
+int	check_nb_item_and_endline(t_param *param, int i, int flag)
 {	
+	if (flag == 0)
+		return (0);
 	if (param->nb_item.nb_exit != 1)
 		return (ft_putstr("Error \nInvalid Map - No Exit\n"), 0);
 	if (param->nb_item.nb_player != 1)
